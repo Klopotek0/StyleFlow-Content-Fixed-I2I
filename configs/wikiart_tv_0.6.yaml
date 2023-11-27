@@ -1,14 +1,14 @@
 job_name: wikiart
 
-output: ./output/
+output: /content/drive/MyDrive/inżynierka/styleflow
 
 get_direct: False
 
 used_domain: wikiart
 
-rootA: /path/to/train_src.txt
+rootA: /content/data_robust/test.txt
 
-rootB: /path/to/train_target.txt
+rootB: /content/data_robust/testtrg.txt
 
 infotxt: ///
 
