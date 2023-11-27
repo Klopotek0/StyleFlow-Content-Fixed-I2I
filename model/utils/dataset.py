@@ -168,21 +168,21 @@ def get_data_loader_folder_pair(input_folderA, input_folderB, info_txt, batch_si
                            height=256, width=256, num_workers=8, crop=True,get_direct=True,used_domain=None,train_vr=False,return_paths=False):
     if train_vr is False:
         transform_list = []
-        transform_list.append(transforms.RandomResizedCrop((300,400),scale=(0.7,1.0)))
-        #transform_list.append(transforms.Resize((300,400)))
+        #transform_list.append(transforms.RandomResizedCrop((300,400),scale=(0.7,1.0)))
+        transform_list.append(transforms.Resize((320,416)))
         transform_list.append(transforms.ToTensor())
         transform = transforms.Compose(transform_list)
         transform2=None
     else:
         transform_list = []
         transform_list.append(torchvision.transforms.Lambda(lambda img: crop_vr_img(img)))
-        transform_list.append(transforms.Resize((300,400)))
+        transform_list.append(transforms.Resize((320,416)))
         transform_list.append(transforms.ToTensor())
         transform = transforms.Compose(transform_list)
 
         transform_list2 = []
         transform_list2.append(torchvision.transforms.Lambda(lambda img: crop_real_img(img)))
-        transform_list2.append(transforms.Resize((300,400)))
+        transform_list2.append(transforms.Resize((320,416)))
         transform_list2.append(transforms.ToTensor())
         transform2 = transforms.Compose(transform_list2)
 
